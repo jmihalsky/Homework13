@@ -23,6 +23,7 @@ module.exports = function(app){
         }
         var Umatch = Udiff.indexOf(l_diff);
         res.send(friends[Umatch]);
+        friends.push(SurUser);
 
         function user_diff(friends,SurUser){
             for(var i = 0; i < friends.length; i++)
