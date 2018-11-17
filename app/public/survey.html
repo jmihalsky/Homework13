@@ -8,12 +8,14 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
  
 </head>
 <body>
     <header></header>
-    <div class="container">
+    <div class="container" id="survey">
         <h2>Survey Questions</h2>
         <hr>
         <h3>About You</h3>
@@ -115,6 +117,15 @@
         <br>
         <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">Submit</button>
     </div>
+    <div class="container" id="data-answer" style="display: none;">
+        <h1 id="match-name"></h1>
+        <hr>
+        <br>
+        <img id="match-img" src="" alt="Match Photo" height="250px" width="auto">
+        <br>
+        <br>
+        <p><a href="/survey">Go back to the Survey</a></p>
+    </div>
     <footer>
         <div class="container">
             <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/jmihalsky/Homework13" target=" ">GitHub Repo</a></p>
@@ -159,10 +170,11 @@
                 };
 
                 $.post("/api/friends",u_data).then(function(data){
+                    $("#survey").css("display", "none");
+                    $("#data-answer").css("display", "block");
                     $("#match-name").text(data.name);
                     $("#match-img").attr("src", data.photo);
 
-                    $("#results-modal").modal("toggle");
                 });
 
             }
