@@ -9,7 +9,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 require("./app/routing/htmlRoutes")(app);
-// require("./app/routing/apiRoutes")(app);
+require("./app/routing/apiRoutes")(app);
 
 // app.get("/",function(req,res) {
 //     res.sendfile(path.join(__dirname, "./app/public/home.html"));
