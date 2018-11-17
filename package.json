@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
-    "require": "^2.4.20"
+    "require": "^2.4.20",
+    "uglify-js": ">=2.6.0"
   }
 }
